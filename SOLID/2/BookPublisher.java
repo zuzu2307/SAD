@@ -1,11 +1,13 @@
 package com.solid.book;
 
-
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 
-public class BookPublisher {
-    public static void main(String[] args) {
+public class BookPublisher extends BookPrintToFile {
+    public void main(String[] args) {
         Book book = new Book("Tyland", List.of("I", "moved", "here", "recently", "too"));
-        book.printToFile();
+        super.printToFile(book);
     }
 }
