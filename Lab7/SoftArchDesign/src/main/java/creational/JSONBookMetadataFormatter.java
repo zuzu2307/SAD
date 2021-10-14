@@ -2,8 +2,8 @@ package creational;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONArray;
 
-import java.io.IOException;
-import java.io.StringWriter;
+import java.util.Arrays;
+
 
 public class JSONBookMetadataFormatter implements BookMetadataFormatter {
 
@@ -28,9 +28,7 @@ public class JSONBookMetadataFormatter implements BookMetadataFormatter {
         // Please implement this method. You may create additional methods as you see fit.
         JSONObject newBook = new JSONObject();
         JSONArray newAuthors = new JSONArray();
-        for(String author : b.getAuthors()){
-            newAuthors.add(author);
-        }
+        newAuthors.addAll(Arrays.asList(b.getAuthors()));
 
         newBook.put(Book.Metadata.ISBN.value,b.getISBN());
         newBook.put(Book.Metadata.AUTHORS.value, newAuthors);
